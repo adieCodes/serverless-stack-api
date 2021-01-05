@@ -1,6 +1,6 @@
-import { calculateCost } from "../libs/billing-lib";
+import { calculateCost } from '../libs/billing-lib';
 
-test("Lowest tier", () => {
+test('Lowest tier', () => {
   const storage = 10;
 
   const cost = 4000;
@@ -9,7 +9,7 @@ test("Lowest tier", () => {
   expect(cost).toEqual(expectedCost);
 });
 
-test("Middle tier", () => {
+test('Middle tier', () => {
   const storage = 100;
 
   const cost = 20000;
@@ -18,7 +18,7 @@ test("Middle tier", () => {
   expect(cost).toEqual(expectedCost);
 });
 
-test("Highest tier", () => {
+test('Highest tier', () => {
   const storage = 101;
 
   const cost = 10100;
