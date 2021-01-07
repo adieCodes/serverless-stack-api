@@ -1,6 +1,6 @@
 Resources:
   CognitoAuthorizedApiPolicy:
-    Type: AWS::IAM::policy
+    Type: AWS::IAM::Policy
     Properties:
       PolicyName: ${self:custom.stage}-CognitoNotesAuthorizedApiPolicy
       PolicyDocument:
