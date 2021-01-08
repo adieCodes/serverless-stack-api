@@ -106,6 +106,6 @@ functions:
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors
-  - ${file(services/notes/resources/api-gateway-errors.yml)}
+  - ${file(resources/api-gateway-errors.yml)}
   # Cognito Identity Pool Policy
-  - ${file(services/notes/resources/cognito-policy.yml)}
+  - ${file(resources/cognito-policy.yml)}
