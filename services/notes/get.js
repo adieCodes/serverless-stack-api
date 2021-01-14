@@ -1,20 +1,20 @@
 import handler from './libs/handler-lib';
-import dynamoDb from './libs/dynamodb-lib';
+import * as dynamoDbLib from './libs/dynamodb-lib';
 
-// Some faulty code
-dynamoDb.notExist();
-
-export const main = handler(async (event, context) => {
+// Wrong handler function name
+export const main2 = handler(async (event, context) => {
   const params = {
     TableName: process.env.tableName,
     // 'Key' defines the partition key and sort key of the item to be retrieved
+    // - 'userId': Identity Pool identity id of the authenticated user
+    // - 'noteId': path parameter
     Key: {
-      userId: event.requestContext.identity.cognitoIdentityId, // The id of the author
-      noteId: event.pathParameters.id, // The id of the note from the path
+      userId: event.requestContext.identity.cognitoIdentityId,
+      noteId: event.pathParameters.id,
     },
   };
 
-  const result = await dynamoDb.get(params);
+  const result = await dynamoDbLib.call('get', params);
   if (!result.Item) {
     throw new Error('Item not found.');
   }
